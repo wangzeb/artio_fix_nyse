@@ -22,7 +22,7 @@ public class FIXTradingDemo {
             if (loadConfig.equals("y")) {
                 System.out.print("Enter config file path (default: fix.properties): ");
                 String configPath = scanner.nextLine().trim();
-                if (configPath.length() == 0) {
+                if (configPath.isEmpty()) {
                     configPath = "fix.properties";
                 }
                 
@@ -43,7 +43,7 @@ public class FIXTradingDemo {
                 
                 System.out.print("Enter Target CompID (default: NYSE): ");
                 String targetCompID = scanner.nextLine().trim();
-                if (targetCompID.length() == 0) {
+                if (targetCompID.isEmpty()) {
                     targetCompID = "NYSE";
                 }
                 
@@ -73,18 +73,24 @@ public class FIXTradingDemo {
                 printMenu();
                 String choice = scanner.nextLine().trim();
                 
-                if (choice.equals("1")) {
-                    placeOrder();
-                } else if (choice.equals("2")) {
-                    cancelOrder();
-                } else if (choice.equals("3")) {
-                    sendHeartbeat();
-                } else if (choice.equals("4")) {
-                    viewMessageExample();
-                } else if (choice.equals("5")) {
-                    running = false;
-                } else {
-                    System.out.println("Invalid choice. Please try again.");
+                switch (choice) {
+                    case "1":
+                        placeOrder();
+                        break;
+                    case "2":
+                        cancelOrder();
+                        break;
+                    case "3":
+                        sendHeartbeat();
+                        break;
+                    case "4":
+                        viewMessageExample();
+                        break;
+                    case "5":
+                        running = false;
+                        break;
+                    default:
+                        System.out.println("Invalid choice. Please try again.");
                 }
             }
             
@@ -95,6 +101,7 @@ public class FIXTradingDemo {
             
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
+            e.printStackTrace();
         } finally {
             scanner.close();
         }
@@ -212,16 +219,12 @@ public class FIXTradingDemo {
     }
     
     private static String getTimeInForceDesc(String tif) {
-        if (tif.equals("0")) {
-            return "Day";
-        } else if (tif.equals("1")) {
-            return "GTC (Good Till Cancel)";
-        } else if (tif.equals("3")) {
-            return "IOC (Immediate or Cancel)";
-        } else if (tif.equals("4")) {
-            return "FOK (Fill or Kill)";
-        } else {
-            return tif;
+        switch (tif) {
+            case "0": return "Day";
+            case "1": return "GTC (Good Till Cancel)";
+            case "3": return "IOC (Immediate or Cancel)";
+            case "4": return "FOK (Fill or Kill)";
+            default: return tif;
         }
     }
 }
