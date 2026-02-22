@@ -5,13 +5,13 @@
          http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.example</groupId>
-    <artifactId>artio-fix-trading</artifactId>
+    <groupId>com.nyse</groupId>
+    <artifactId>fix-trading-client</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
 
-    <name>Artio FIX Trading Client for NYSE</name>
-    <description>FIX Protocol Trading Client using Artio for NYSE</description>
+    <name>NYSE FIX Trading Client</name>
+    <description>FIX Protocol Trading Client with Socket and Artio Support</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -89,7 +89,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>FIXTradingDemo</mainClass>
+                            <mainClass>com.nyse.fix.demo.FIXTradingDemo</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

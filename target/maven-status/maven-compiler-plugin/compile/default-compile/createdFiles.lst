@@ -1,0 +1,6 @@
+com/nyse/fix/IFIXTradingClient.class
+com/nyse/fix/util/FIXMessageParser.class
+com/nyse/fix/config/FIXSessionConfig.class
+com/nyse/fix/client/FIXTradingClient.class
+com/nyse/fix/demo/FIXTradingDemo.class
+com/nyse/fix/client/ArtioFIXTradingClient.class
